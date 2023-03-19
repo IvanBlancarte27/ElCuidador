@@ -1,3 +1,62 @@
+.body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color:#FCA311;
+}
+
+.navM
+{
+    height: 50px;
+    display:flex;
+    justify-content: space-between;
+    width:auto;
+    margin-right:10px;
+    margin-left:10px;
+    margin-top:10px; 
+    border-radius:20px;
+    background-color:#FFFFFF;
+}
+
+
+.menuInicio{
+    background-image:url('../img/Cuidador (2).svg');
+    width:500px;
+    height:450px;
+    margin-left:80px;
+    
+}
+
+.buttonInicio {
+  border-radius:50px;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 600px;
+  height:100px;
+  background-color:#E5E5E5;
+  margin-left:30px;
+}
+
+.divDescripcoion{
+
+    background-color:#E5E5E5;
+    width:680px;
+    height:50px; 
+    border-radius: 10px;
+    text-align:left;
+    margin-top:40px;
+    margin-bottom:10px; 
+}
+
+
+
+
+
+
+
+
+
 
 .fondoLogin
 {
@@ -58,16 +117,7 @@
     background-repeat: repeat-y;
 }
 
-.navM
-{
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    background-color:#072255;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
+
 .optica_menu_item,.optica_menu_item:link,.optica_menu_item:visited,.optica_menu_item:active
 {
     color:white;
@@ -126,10 +176,9 @@
     border: none;
 }
 
-hamburguesa
-{
 
-}
+
+
 .card-hform
 {
     color: white;
