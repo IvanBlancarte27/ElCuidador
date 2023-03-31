@@ -27,32 +27,32 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Seguridad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link disabled" href="#">Rastreo</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <hr>
-        <h3 style="text-align:center; ">Registro Adulto Mayor</h3>
-        <hr>
-        <br><!-- comment -->
+        <div class="titleForm">
+            <h3 style="text-align:center; ">Registro Adulto Mayor</h3>
+        </div>
         <br><!-- comment -->
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 containerFormAdulto_datosPer">
                 <div class="row">
                     <div class="col-12">
+                        <h5 style="text-align:center; ">Datos personales</h5>
                         <div class="imput-container2">
                             <div class="input-container">
-                                <input placeholder="Nombre" class="input-field" type="text">
-                                <label for="input-field" class="input-label">Nombre</label>
+                                <input placeholder="Nombre" class="input-field" type="text" id="txtNombreAdulto">
+                                <label for="txtNombreAdulto" class="input-label">Nombre</label>
                                 <span class="input-highlight"></span>
                             </div>
                             <div class="input-container">
-                                <input placeholder="Primer Apellido" class="input-field" type="text">
-                                <label for="input-field" class="input-label">Primer Apellido:</label>
+                                <input placeholder="Primer Apellido" class="input-field" type="text" id="txtPrimerApellidoAdulto">
+                                <label for="txtPrimerApellidoAdulto" class="input-label">Primer Apellido:</label>
                                 <span class="input-highlight"></span>
                             </div>
                         </div>
@@ -63,13 +63,13 @@
                     <div class="col-12">
                         <div class="imput-container2">
                             <div class="input-container">
-                                <input placeholder="Segundo Apellido" class="input-field" type="text">
+                                <input placeholder="Segundo Apellido" class="input-field" type="text" id="txtSegundoApellidoAdulto">
                                 <label for="input-field" class="input-label">Segundo Apellido</label>
                                 <span class="input-highlight"></span>
                             </div>
                             <div class="input-container">
-                                <input placeholder="Edad" class="input-field" type="text">
-                                <label for="input-field" class="input-label">Edad</label>
+                                <input placeholder="Fecha de nacimiento" class="input-field" type="date" style="width:125%">
+                                <label for="input-field" class="input-label" >Fecha de Nacimiento</label>
                                 <span class="input-highlight"></span>
                             </div>
                         </div>
@@ -80,25 +80,7 @@
                     <div class="col-12">
                         <div class="imput-container2">
                             <div class="input-container">
-                                <input placeholder="Telefono de Casa" class="input-field" type="text">
-                                <label for="input-field" class="input-label">Telefono de Casa</label>
-                                <span class="input-highlight"></span>
-                            </div>
-                            <div class="input-container">
-                                <input placeholder="Telefono Movil" class="input-field" type="text">
-                                <label for="input-field" class="input-label">Telefono Movil</label>
-                                <span class="input-highlight"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="imput-container2">
-                            <div class="input-container">
-                                <select class="input-field" style="width:470%;">
+                                <select class="input-field" style="width:430%;">
                                     <option id="opMaculino"> Masculino</option>
                                     <option id="opFemenino"> Femenino</option>
                                     <option id="opOtro"> Otro</option>
@@ -108,24 +90,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="imput-container2">
-                            <div class="input-container">
-                                <input placeholder="E-mail" class="input-field" type="email">
-                                <label for="input-field" class="input-label">E-mail</label>
-                                <span class="input-highlight"></span>
-                            </div>
-                            <div class="input-container">
-                                <input placeholder="Edad" class="input-field" type="number">
-                                <label for="input-field" class="input-label">Edad</label>
-                                <span class="input-highlight"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-12">
                         <div class="imput-container2">
@@ -142,17 +106,122 @@
                         </div>
                     </div>
                 </div>
-                <div style="text-align:center; width:200%;  ">
-                    <button>Registrar</button>
-                </div>
-            </div>
-            <div class="col-6">
-
                 <div>
                     <img src="img/camara.svg" alt="alt" width="100"/>
                     <input accept="image/*" type="file" multiple>
                     <a style="color:blue;">Fotografia</a>
                 </div>
+                <div style="text-align:center; width:80%;" class="py-5">
+                    <button class="btn btn-primary">Registrar</button>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="containerFormAdulto_datosFam">
+                    <h5 style="text-align:center; ">Familar a cargo</h5>
+                    <div class="imput-container2">
+                        <div class="input-container">
+                            <input placeholder="Nombre" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Nombre</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="input-container">
+                            <input placeholder="Primer Apellido" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Primer Apellido:</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="input-container">
+                            <input placeholder="Segundo Apellido" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Segundo Apellido</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="imput-container2">
+                                <div class="input-container">
+                                    <input placeholder="Num.Telefono" class="input-field" type="text">
+                                    <label for="input-field" class="input-label">Num.Telefono</label>
+                                    <span class="input-highlight"></span>
+                                </div>
+                                <div class="input-container">
+                                    <input placeholder="Edad" class="input-field" type="text">
+                                    <label for="input-field" class="input-label">Edad</label>
+                                    <span class="input-highlight"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="imput-container2">
+                                <div class="input-container">
+                                    <select class="input-field" style="width:470%;">
+                                        <option id="opMaculino"> Masculino</option>
+                                        <option id="opFemenino"> Femenino</option>
+                                        <option id="opOtro"> Otro</option>
+                                    </select>
+                                    <span class="input-highlight"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br><!-- comment -->
+                <div class="containerFormAdulto_datosMedic">
+                    <h5 style="text-align:center;"> Medico</h5>
+                    <div class="imput-container2">
+                        <div class="input-container">
+                            <input placeholder="Nombre" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Nombre</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="input-container">
+                            <input placeholder="Primer Apellido" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Primer Apellido:</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="input-container">
+                            <input placeholder="Segundo Apellido" class="input-field" type="text">
+                            <label for="input-field" class="input-label">Segundo Apellido</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="imput-container2">
+                                <div class="input-container">
+                                    <input placeholder="Num.Telefono" class="input-field" type="text">
+                                    <label for="input-field" class="input-label">Num.Telefono</label>
+                                    <span class="input-highlight"></span>
+                                </div>
+                                <div class="input-container">
+                                    <input placeholder="Edad" class="input-field" type="text">
+                                    <label for="input-field" class="input-label">Edad</label>
+                                    <span class="input-highlight"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="imput-container2">
+                                <div class="input-container">
+                                    <select class="input-field" style="width:470%;">
+                                        <option id="opMaculino"> Masculino</option>
+                                        <option id="opFemenino"> Femenino</option>
+                                        <option id="opOtro"> Otro</option>
+                                    </select>
+                                    <span class="input-highlight"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </body>

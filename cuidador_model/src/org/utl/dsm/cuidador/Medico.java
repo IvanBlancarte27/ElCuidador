@@ -10,10 +10,22 @@ package org.utl.dsm.cuidador;
  */
 public class Medico {
     private int idMedico;
-    private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
-    private String telefono;
+    private String numeroTelefono;
+    private Persona persona;
+
+    public Medico() {
+    }
+
+    public Medico(String numeroTelefono, Persona persona) {
+        this.numeroTelefono = numeroTelefono;
+        this.persona = persona;
+    }
+
+    public Medico(int idMedico, String numeroTelefono, Persona persona) {
+        this.idMedico = idMedico;
+        this.numeroTelefono = numeroTelefono;
+        this.persona = persona;
+    }
 
     public int getIdMedico() {
         return idMedico;
@@ -23,52 +35,26 @@ public class Medico {
         this.idMedico = idMedico;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
-    }
-
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Medico(int idMedico, String nombre, String apellidoPaterno, String apellidoMaterno, String telefono) {
-        this.idMedico = idMedico;
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoMaterno = apellidoMaterno;
-        this.telefono = telefono;
-    }
-
-    public Medico() {
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     @Override
     public String toString() {
-        return "medico{" + "idMedico=" + idMedico + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", telefono=" + telefono + '}';
+        return "Medico{" + "idMedico=" + idMedico + ", numeroTelefono=" + numeroTelefono + ", persona=" + persona.toString() + '}';
     }
+    
     
 }

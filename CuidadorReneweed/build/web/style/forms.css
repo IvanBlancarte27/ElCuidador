@@ -60,77 +60,70 @@
 
 
 
+.divDescripcoion{
+    background-color:#274C77;
+    width:680px;
+    height:50px; 
+    border-radius: 10px;
+    text-align:left;
+    margin-top:40px;
+    margin-bottom:10px; 
+}
 
 
-button {
+
+
+.containerForm {
   position: relative;
-  padding: 10px 20px;
-  border-radius: 7px;
-  border: 1px solid rgb(61, 106, 255);
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2px;
-  background: transparent;
-  color: #007bff;
-  overflow: hidden;
-  box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  width: 700px;
+  height: 680px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-left:20px;
 }
 
-button:hover {
-  background: #000;
-  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
+.titleForm{
+    background-color:#E7ECEF;
+    height:50PX;
 }
 
-button:hover::before {
-  -webkit-animation: sh02 0.5s 0s linear;
-  -moz-animation: sh02 0.5s 0s linear;
-  animation: sh02 0.5s 0s linear;
+
+.containerFormAdulto_datosPer {
+  position: relative;
+  width: 600px;
+  height:680px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-left:30px;
 }
 
-button::before {
-  content: '';
-  display: block;
-  width: 0px;
-  height: 86%;
-  position: absolute;
-  top: 7%;
-  left: 0%;
-  opacity: 0;
-  background: #fff;
-  box-shadow: 0 0 50px 30px #fff;
-  -webkit-transform: skewX(-20deg);
-  -moz-transform: skewX(-20deg);
-  -ms-transform: skewX(-20deg);
-  -o-transform: skewX(-20deg);
-  transform: skewX(-20deg);
+
+.containerFormAdulto_datosFam{
+  position: relative;
+  width: 750px;
+  height:330px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-left:20px;
 }
 
-@keyframes sh02 {
-  from {
-    opacity: 0;
-    left: 0%;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    left: 100%;
-  }
-}
-
-button:active {
-  box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: box-shadow 0.2s ease-in;
-  -moz-transition: box-shadow 0.2s ease-in;
-  transition: box-shadow 0.2s ease-in;
+.containerFormAdulto_datosMedic{
+  position: relative;
+  width: 750px;
+  height:330px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  margin-left:20px;
 }

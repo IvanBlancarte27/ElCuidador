@@ -9,17 +9,17 @@ package org.utl.dsm.cuidador;
  * @author daian
  */
 public class Servicio {
-    private int idServicio;
+    private int idPaquete;
     private String nombre;
     private String descripcion;
     private double precioPorHora;
 
-    public int getIdServicio() {
-        return idServicio;
+    public int getIdPaquete() {
+        return idPaquete;
     }
 
-    public void setIdServicio(int idServicio) {
-        this.idServicio = idServicio;
+    public void setIdPaquete(int idServicio) {
+        this.idPaquete = idServicio;
     }
 
     public String getNombre() {
@@ -46,8 +46,8 @@ public class Servicio {
         this.precioPorHora = precioPorHora;
     }
 
-    public Servicio(int idServicio, String nombre, String descripcion, double precioPorHora) {
-        this.idServicio = idServicio;
+    public Servicio(int idPaquete, String nombre, String descripcion, double precioPorHora) {
+        this.idPaquete = idPaquete;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precioPorHora = precioPorHora;
@@ -58,7 +58,7 @@ public class Servicio {
 
     @Override
     public String toString() {
-        return "Servicio{" + "idServicio=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precioPorHora=" + precioPorHora + '}';
+        return "Servicio{" + "idServicio=" + idPaquete + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precioPorHora=" + precioPorHora + '}';
     }
     
 }

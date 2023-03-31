@@ -56,6 +56,14 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String nombreUsuario, String contrasenia, String rol) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia + ", rol=" + rol + '}';

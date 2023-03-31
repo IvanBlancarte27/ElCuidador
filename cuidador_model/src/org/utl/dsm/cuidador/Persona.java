@@ -11,20 +11,27 @@ package org.utl.dsm.cuidador;
 public class Persona {
     private int idPersona;
     private String nombre;
-    private String apellidoPaterno;
-    private String apellidoManterno;
+    private String primerApellido;
+    private String segundoApellido;
     private String genero;
-    private int edad;
-    private String rfc;
-    private String calle;
-    private String colonia;
-    private String numeroCasa;
-    private String ciudad;
-    private String pais;
-    private int telefonoMovil;
-    private int telefonoCasa;
-    private String correo;
-    private String fotoPersonal;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String primerApellido, String segundoApellido, String genero) {
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.genero = genero;
+    }
+
+    public Persona(int idPersona, String nombre, String primerApellido, String segundoApellido, String genero) {
+        this.idPersona = idPersona;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.genero = genero;
+    }
 
     public int getIdPersona() {
         return idPersona;
@@ -42,20 +49,20 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
     }
 
-    public String getApellidoManterno() {
-        return apellidoManterno;
+    public String getSegundoApellido() {
+        return segundoApellido;
     }
 
-    public void setApellidoManterno(String apellidoManterno) {
-        this.apellidoManterno = apellidoManterno;
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
     }
 
     public String getGenero() {
@@ -66,120 +73,12 @@ public class Persona {
         this.genero = genero;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public String getRfc() {
-        return rfc;
-    }
-
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    public String getNumeroCasa() {
-        return numeroCasa;
-    }
-
-    public void setNumeroCasa(String numeroCasa) {
-        this.numeroCasa = numeroCasa;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public int getTelefonoMovil() {
-        return telefonoMovil;
-    }
-
-    public void setTelefonoMovil(int telefonoMovil) {
-        this.telefonoMovil = telefonoMovil;
-    }
-
-    public int getTelefonoCasa() {
-        return telefonoCasa;
-    }
-
-    public void setTelefonoCasa(int telefonoCasa) {
-        this.telefonoCasa = telefonoCasa;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getFotoPersonal() {
-        return fotoPersonal;
-    }
-
-    public void setFotoPersonal(String fotoPersonal) {
-        this.fotoPersonal = fotoPersonal;
-    }
-
-    public Persona() {
-    }
-
-    public Persona(int idPersona, String nombre, String apellidoPaterno, String apellidoManterno, String genero, int edad, String rfc, String calle, String colonia, String numeroCasa, String ciudad, String pais, int telefonoMovil, int telefonoCasa, String correo, String fotoPersonal) {
-        this.idPersona = idPersona;
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoManterno = apellidoManterno;
-        this.genero = genero;
-        this.edad = edad;
-        this.rfc = rfc;
-        this.calle = calle;
-        this.colonia = colonia;
-        this.numeroCasa = numeroCasa;
-        this.ciudad = ciudad;
-        this.pais = pais;
-        this.telefonoMovil = telefonoMovil;
-        this.telefonoCasa = telefonoCasa;
-        this.correo = correo;
-        this.fotoPersonal = fotoPersonal;
-    }
 
     @Override
     public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoManterno=" + apellidoManterno + ", genero=" + genero + ", edad=" + edad + ", rfc=" + rfc + ", calle=" + calle + ", colonia=" + colonia + ", numeroCasa=" + numeroCasa + ", ciudad=" + ciudad + ", pais=" + pais + ", telefonoMovil=" + telefonoMovil + ", telefonoCasa=" + telefonoCasa + ", correo=" + correo + ", fotoPersonal=" + fotoPersonal + '}';
+        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido + ", genero=" + genero +'}';
     }
+    
     
     
 }

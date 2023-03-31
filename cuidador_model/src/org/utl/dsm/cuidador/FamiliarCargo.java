@@ -10,10 +10,22 @@ package org.utl.dsm.cuidador;
  */
 public class FamiliarCargo {
     private int idFamiliarCargo;
-    private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
-    private String telefono;
+    private String numeroTelefono;
+    private Persona persona;
+
+    public FamiliarCargo() {
+    }
+
+    public FamiliarCargo(int idFamiliarCargo, String numeroTelefono, Persona persona) {
+        this.idFamiliarCargo = idFamiliarCargo;
+        this.numeroTelefono = numeroTelefono;
+        this.persona = persona;
+    }
+
+    public FamiliarCargo(String numeroTelefono, Persona persona) {
+        this.numeroTelefono = numeroTelefono;
+        this.persona = persona;
+    }
 
     public int getIdFamiliarCargo() {
         return idFamiliarCargo;
@@ -23,52 +35,28 @@ public class FamiliarCargo {
         this.idFamiliarCargo = idFamiliarCargo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
-    }
-
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public FamiliarCargo(int idFamiliarCargo, String nombre, String apellidoPaterno, String apellidoMaterno, String telefono) {
-        this.idFamiliarCargo = idFamiliarCargo;
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoMaterno = apellidoMaterno;
-        this.telefono = telefono;
-    }
-
-    public FamiliarCargo() {
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     @Override
     public String toString() {
-        return "familiarCargo{" + "idFamiliarCargo=" + idFamiliarCargo + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", telefono=" + telefono + '}';
+        return "FamiliarCargo{" + "idFamiliarCargo=" + idFamiliarCargo + ", numeroTelefono=" + numeroTelefono + ", persona=" + persona.toString() + '}';
     }
     
+    
+    
+
 }

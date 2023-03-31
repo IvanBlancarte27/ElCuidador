@@ -10,14 +10,60 @@ package org.utl.dsm.cuidador;
  */
 public class Cuidador {
     private int idCuidador;
-    private String telefonoEmergencia;
     private String numeroUnico;
-    private String fotoINE;
+    private String fotografiaIne;
     private String cartaRecomendacion;
     private String cartaAntecedentesPenales;
     private String comprobanteDomicilio;
+    private String rfc;
+    private String numTelefonoMovil;
+    private String numTelefonoCasa;
+    private String correo;
+    private String fotografia;
     private Persona persona;
     private Usuario usuario;
+
+    public Cuidador() {
+    }
+
+    public Cuidador(String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario) {
+        this.numeroUnico = numeroUnico;
+        this.fotografiaIne = fotografiaIne;
+        this.cartaRecomendacion = cartaRecomendacion;
+        this.cartaAntecedentesPenales = cartaAntecedentesPenales;
+        this.comprobanteDomicilio = comprobanteDomicilio;
+        this.rfc = rfc;
+        this.numTelefonoMovil = numTelefonoMovil;
+        this.numTelefonoCasa = numTelefonoCasa;
+        this.correo = correo;
+        this.fotografia = fotografia;
+        this.persona = persona;
+        this.usuario = usuario;
+    }
+
+    public Cuidador(int idCuidador, String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario) {
+        this.idCuidador = idCuidador;
+        this.numeroUnico = numeroUnico;
+        this.fotografiaIne = fotografiaIne;
+        this.cartaRecomendacion = cartaRecomendacion;
+        this.cartaAntecedentesPenales = cartaAntecedentesPenales;
+        this.comprobanteDomicilio = comprobanteDomicilio;
+        this.rfc = rfc;
+        this.numTelefonoMovil = numTelefonoMovil;
+        this.numTelefonoCasa = numTelefonoCasa;
+        this.correo = correo;
+        this.fotografia = fotografia;
+        this.persona = persona;
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public int getIdCuidador() {
         return idCuidador;
@@ -25,14 +71,6 @@ public class Cuidador {
 
     public void setIdCuidador(int idCuidador) {
         this.idCuidador = idCuidador;
-    }
-
-    public String getTelefonoEmergencia() {
-        return telefonoEmergencia;
-    }
-
-    public void setTelefonoEmergencia(String telefonoEmergencia) {
-        this.telefonoEmergencia = telefonoEmergencia;
     }
 
     public String getNumeroUnico() {
@@ -43,12 +81,12 @@ public class Cuidador {
         this.numeroUnico = numeroUnico;
     }
 
-    public String getFotoINE() {
-        return fotoINE;
+    public String getFotografiaIne() {
+        return fotografiaIne;
     }
 
-    public void setFotoINE(String fotoINE) {
-        this.fotoINE = fotoINE;
+    public void setFotografiaIne(String fotografiaIne) {
+        this.fotografiaIne = fotografiaIne;
     }
 
     public String getCartaRecomendacion() {
@@ -75,6 +113,46 @@ public class Cuidador {
         this.comprobanteDomicilio = comprobanteDomicilio;
     }
 
+    public String getRfc() {
+        return rfc;
+    }
+
+    public void setRfc(String rfc) {
+        this.rfc = rfc;
+    }
+
+    public String getNumTelefonoMovil() {
+        return numTelefonoMovil;
+    }
+
+    public void setNumTelefonoMovil(String numTelefonoMovil) {
+        this.numTelefonoMovil = numTelefonoMovil;
+    }
+
+    public String getNumTelefonoCasa() {
+        return numTelefonoCasa;
+    }
+
+    public void setNumTelefonoCasa(String numTelefonoCasa) {
+        this.numTelefonoCasa = numTelefonoCasa;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getFotografia() {
+        return fotografia;
+    }
+
+    public void setFotografia(String fotografia) {
+        this.fotografia = fotografia;
+    }
+
     public Persona getPersona() {
         return persona;
     }
@@ -83,33 +161,12 @@ public class Cuidador {
         this.persona = persona;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Cuidador(int idCuidador, String telefonoEmergencia, String numeroUnico, String fotoINE, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, Persona persona, Usuario usuario) {
-        this.idCuidador = idCuidador;
-        this.telefonoEmergencia = telefonoEmergencia;
-        this.numeroUnico = numeroUnico;
-        this.fotoINE = fotoINE;
-        this.cartaRecomendacion = cartaRecomendacion;
-        this.cartaAntecedentesPenales = cartaAntecedentesPenales;
-        this.comprobanteDomicilio = comprobanteDomicilio;
-        this.persona = persona;
-        this.usuario = usuario;
-    }
-
-    public Cuidador() {
-    }
-
     @Override
     public String toString() {
-        return "Cuidador{" + "idCuidador=" + idCuidador + ", telefonoEmergencia=" + telefonoEmergencia + ", numeroUnico=" + numeroUnico + ", fotoINE=" + fotoINE + ", cartaRecomendacion=" + cartaRecomendacion + ", cartaAntecedentesPenales=" + cartaAntecedentesPenales + ", comprobanteDomicilio=" + comprobanteDomicilio + ", persona=" + persona + ", usuario=" + usuario + '}';
+        return "Cuidador{" + "idCuidador=" + idCuidador + ", numeroUnico=" + numeroUnico + ", fotografiaIne=" + fotografiaIne + ", cartaRecomendacion=" + cartaRecomendacion + ", cartaAntecedentesPenales=" + cartaAntecedentesPenales + ", comprobanteDomicilio=" + comprobanteDomicilio + ", rfc=" + rfc + ", numTelefonoMovil=" + numTelefonoMovil + ", numTelefonoCasa=" + numTelefonoCasa + ", correo=" + correo + ", fotografia=" + fotografia + ", persona=" + persona.toString() + ", usuario=" + usuario.toString() + '}';
     }
+    
+    
     
     
 }

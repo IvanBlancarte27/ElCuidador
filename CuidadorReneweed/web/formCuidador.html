@@ -12,7 +12,7 @@
         <link href="style/forms.css" rel="stylesheet" type="text/css"/>
 
     </head>
-    <body>
+    <body class="">
         <nav class="navbar navbar-expand-lg navbar-light navM" style="background-color:#6096BA; ">
             <img style="margin-left:10px; margin-right:10px;  " src="img/Cuidador.png" width="40" height="40" class="d-inline-block align-top" alt="">
             <a class="navbar-brand" href="index.html">Cuidador</a>
@@ -27,21 +27,21 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Seguridad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link disabled" href="#">Rastreo</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <hr>
+        <div class="titleForm">
         <h3 style="text-align:center; ">Registro Cuidador</h3>
-        <hr>
-        <br><!-- comment -->
+        </div>
         <br><!-- comment -->
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 containerForm">
+                <h5 style="text-align:center;">Datos Personales</h5>
                 <div class="row">
                     <div class="col-12">
                         <div class="imput-container2">
@@ -118,14 +118,13 @@
                                 <span class="input-highlight"></span>
                             </div>
                             <div class="input-container">
-                                <input placeholder="Edad" class="input-field" type="number">
-                                <label for="input-field" class="input-label">Edad</label>
+                                <input placeholder="Fecha de nacimiento" class="input-field" type="date" style="width:155%">
+                                <label for="input-field" class="input-label" >Fecha de Nacimiento</label>
                                 <span class="input-highlight"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <div class="imput-container2">
@@ -142,11 +141,22 @@
                         </div>
                     </div>
                 </div>
-                <div style="text-align:center; width:200%;  ">
-                    <button>Registrar</button>
+ 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input style="width:530px;" placeholder="Correo Electronico" class="input-field" type="email" >
+                                <label for="input-field" class="input-label">Correo Electronico</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
-            <div class="col-6">
+            <div class="col-6 containerForm">
+                <h5 style="text-align:center;">Documentos</h5>
                 <div>
                     <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
                     <input name="pdf" type="file" accept="application/pdf" />
@@ -175,6 +185,9 @@
                     <img src="img/camara.svg" alt="alt" width="100"/>
                     <input accept="image/*" type="file" multiple>
                     <a style="color:blue;">Fotografia</a>
+                </div>
+                <div style="text-align:center; ">
+                    <button class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
