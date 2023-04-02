@@ -22,11 +22,12 @@ public class Cuidador {
     private String fotografia;
     private Persona persona;
     private Usuario usuario;
+    private String fechaNacimiento;
 
     public Cuidador() {
     }
 
-    public Cuidador(String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario) {
+    public Cuidador(String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario, String fechaNacimiento) {
         this.numeroUnico = numeroUnico;
         this.fotografiaIne = fotografiaIne;
         this.cartaRecomendacion = cartaRecomendacion;
@@ -39,9 +40,10 @@ public class Cuidador {
         this.fotografia = fotografia;
         this.persona = persona;
         this.usuario = usuario;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Cuidador(int idCuidador, String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario) {
+    public Cuidador(int idCuidador, String numeroUnico, String fotografiaIne, String cartaRecomendacion, String cartaAntecedentesPenales, String comprobanteDomicilio, String rfc, String numTelefonoMovil, String numTelefonoCasa, String correo, String fotografia, Persona persona, Usuario usuario, String fechaNacimiento) {
         this.idCuidador = idCuidador;
         this.numeroUnico = numeroUnico;
         this.fotografiaIne = fotografiaIne;
@@ -55,14 +57,7 @@ public class Cuidador {
         this.fotografia = fotografia;
         this.persona = persona;
         this.usuario = usuario;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getIdCuidador() {
@@ -161,10 +156,27 @@ public class Cuidador {
         this.persona = persona;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     @Override
     public String toString() {
-        return "Cuidador{" + "idCuidador=" + idCuidador + ", numeroUnico=" + numeroUnico + ", fotografiaIne=" + fotografiaIne + ", cartaRecomendacion=" + cartaRecomendacion + ", cartaAntecedentesPenales=" + cartaAntecedentesPenales + ", comprobanteDomicilio=" + comprobanteDomicilio + ", rfc=" + rfc + ", numTelefonoMovil=" + numTelefonoMovil + ", numTelefonoCasa=" + numTelefonoCasa + ", correo=" + correo + ", fotografia=" + fotografia + ", persona=" + persona.toString() + ", usuario=" + usuario.toString() + '}';
+        return "Cuidador{" + "idCuidador=" + idCuidador + ", numeroUnico=" + numeroUnico + ", fotografiaIne=" + fotografiaIne + ", cartaRecomendacion=" + cartaRecomendacion + ", cartaAntecedentesPenales=" + cartaAntecedentesPenales + ", comprobanteDomicilio=" + comprobanteDomicilio + ", rfc=" + rfc + ", numTelefonoMovil=" + numTelefonoMovil + ", numTelefonoCasa=" + numTelefonoCasa + ", correo=" + correo + ", fotografia=" + fotografia + ", persona=" + persona.toString() + ", usuario=" + usuario.toString() + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
+
     
     
     

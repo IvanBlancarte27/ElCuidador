@@ -94,7 +94,7 @@
 .containerFormAdulto_datosPer {
   position: relative;
   width: 600px;
-  height:680px;
+  height:650px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -107,7 +107,7 @@
 .containerFormAdulto_datosFam{
   position: relative;
   width: 750px;
-  height:330px;
+  height:300px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -119,7 +119,7 @@
 .containerFormAdulto_datosMedic{
   position: relative;
   width: 750px;
-  height:330px;
+  height:300px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;

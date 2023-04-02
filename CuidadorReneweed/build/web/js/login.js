@@ -8,4 +8,8 @@ function creaAnAcount(){
     
 }
 
+function entrar(){
+    
+    window.location.replace('cuidador/cuidador.html');
+}
 
