@@ -10,12 +10,8 @@
     height: 50px;
     display:flex;
     justify-content: space-between;
-    width:auto;
-    margin-right:10px;
-    margin-left:10px;
-    margin-top:10px; 
-    border-radius:20px;
-    background-color:#FFFFFF;
+    width:auto; 
+    background-color:#6096BA;
 }
 
 
