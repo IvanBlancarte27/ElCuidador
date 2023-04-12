@@ -1,4 +1,4 @@
-
+let adulto;
 
 function formateoFecha(fech) {
 
@@ -61,16 +61,58 @@ function insertarAdultoMayor() {
 
                 if (data.error)
                     alert(data.error);
-                else{
+                else {
                     Swal.fire({
                         position: 'top-center',
                         icon: 'success',
                         title: 'Guardado correctamente',
                         showConfirmButton: false,
                         timer: 1500
-                    });}
+                    });
+                }
             });
 
+
+}
+
+function getAll() {
+
+    fetch("http://localhost:8080/CuidadorReneweed/api/adultoMayor/getAll",
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
+            }).then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else
+                    alert(JSON.stringify(data));
+                cargarInformacion(data);
+            });
+
+}
+
+function cargarInformacion(data) {
+    adulto = data;
+    let contenido = "";
+
+    for (var i = 0; i < adulto.length; i++) {
+        contenido += "<div style='border-radius:30px;background: #ffffff;box-shadow: 15px 15px 30px #666666,-15px -15px 30px #ffffff; margin: 10px; width:500px; height:200px; margin-left:150px;'";
+        contenido += "<div>";
+        contenido += "<h3 class='adultos'>Adulto Mayor</h3>";
+        let nombre = adulto[i].persona.nombre;
+        let primAp=adulto[i].persona.primerApellido;
+        let segAp=adulto[i].persona.segundoApellido;
+        contenido += "<h5 class='nombres'>" +nombre+" "+" "+primAp+' '+' '+segAp+ "</h5>";
+        let num = adulto[i].familiarCargo.numeroTelefono;
+        contenido += "<h5 class='nombres'>" + num + "</h5>";
+        contenido += "<button class='btn btn-secondary booton' onclick=' '>Solicitar Servicio</button>";
+        contenido += "</div>";
+        contenido += "</div>";
+
+    }
+
+    document.getElementById("adultosMayores").innerHTML = contenido;
 
 }
 

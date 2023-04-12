@@ -64,7 +64,7 @@ public class ControllerAdultoMayor {
         cstmt.setString(15, adultoMayor.getMedico().getPersona().getGenero());
         cstmt.setString(16, adultoMayor.getMedico().getNumeroTelefono());
         cstmt.setString(17, adultoMayor.getFechaNacimiento());
-        cstmt.setString(18, adultoMayor.getFechaNacimiento());
+        cstmt.setString(18, adultoMayor.getFotografia());
 
         cstmt.registerOutParameter(19, Types.INTEGER);
         cstmt.registerOutParameter(20, Types.INTEGER);
@@ -136,7 +136,7 @@ public class ControllerAdultoMayor {
         Persona persona = new Persona();
 
         persona.setSegundoApellido(rs.getString("segundoApellido"));
-        persona.setSegundoApellido(rs.getString("primerApellido"));
+        persona.setPrimerApellido(rs.getString("primerApellido"));
         persona.setNombre(rs.getString("nombre"));
         persona.setGenero(rs.getString("genero"));
 
