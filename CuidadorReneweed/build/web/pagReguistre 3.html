@@ -1,0 +1,88 @@
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="style/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="style/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" type="text/css" href="style/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css">
+        <link rel="stylesheet" type="text/css" href="style/font_awesome_5_15_3/css/fontawesome.min.css">
+        <link href="style/login.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light navM" style="background-color:#6096BA;">
+            <img style="margin-left:10px; margin-right:10px;  " src="img/Cuidador_Logo.svg" width="40" height="40" class="d-inline-block align-top" alt="">
+            <a class="navbar-brand" href="index.html">Cuidador</a>
+            <div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Seguridad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Rastreo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="h-50 gradient-form" style="background-color: #eee;">
+            <div class="container py-2 h-75">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-xl-10">
+                        <div class="card rounded-3 text-black">
+                            <div class="row g-0">
+                                <div class="col-lg-6">
+                                    <div class="card-body p-md-5 mx-md-4">
+                                        <div class="text-center">
+                                            <h4 class="mt-1 mb-2 pb-1" style="text-align: center;">Cuidador</h4>
+                                            <p>
+                                                Encargado de enfermo o encargado de individuo dependiente designa a una 
+                                                persona que convive o que pertenece al entorno inmediato de un enfermo, 
+                                                sufriente, o individuo con pérdida de autonomía, y que se encarga del 
+                                                mismo en cuanto a su salud y en cuanto a sus necesidades básicas y del 
+                                                diario vivir.​​
+                                            </p>
+                                            <img src="img/RegistroCuidador.svg" style="width:350px;;">
+                                            
+                                            <button class="btn btn-dark mt-3" onclick="reguisterCuidador();">Resgistrarse</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 text-center ">
+                                    <br><!-- comment -->
+                                    <br><!-- comment -->
+                                    <h4 class="mt-1 mb-2 pb-1" style="text-align: center;">Adulto Mayor</h4>
+                                    <p>
+                                        Cuidador, busca brindar un servicio seguro y de calidad a personas mayores que requieran 
+                                        de atencion y/o cuidados especiales o simplemente por puro y mero acompañamiento para la realizacion 
+                                        de labores que estos no pueden hacer.
+                                        Todo esto, conectandote con personas que desen brindar sus servicios de cuidado a tu alcance.
+                                    </p>
+                                    <img src="img/RegistroCuidador.svg" style="width:350px;;">
+                                    <br><!-- comment -->
+                                    <button class="btn btn-dark mt-5" onclick="reguisterAdultoMayor();">Resgistrarse</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <script src="style/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script> 
+    <script src="style/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="style/font_awesome_5_15_3/js/all.min.js"></script> 
+    <script src="js/main.js" type="text/javascript"></script>
+</html>
