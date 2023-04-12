@@ -13,6 +13,7 @@ import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.sql.SQLException;
+import java.util.List;
 import org.utl.dsm.cuidador.AdultoMayor;
 import org.utl.dsm.cuidador.controller.ControllerAdultoMayor;
 
@@ -44,6 +45,24 @@ public class AdultoMayorREST {
             out = "{\"error\":\"" + ex.toString() + "\"}";
         }
         
+        return Response.status(Response.Status.OK).entity(out).build();
+    }
+    
+    @Path("getAll")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAll(){
+        String out="";
+        try {
+            ControllerAdultoMayor cmA = new ControllerAdultoMayor();
+            List<AdultoMayor> adultos = cmA.getAll( );
+            Gson gs = new Gson();
+            out = gs.toJson(adultos);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+           
+            out="{\"error\":\""+ex.toString()+"\"}";
+        }
         return Response.status(Response.Status.OK).entity(out).build();
     }
     

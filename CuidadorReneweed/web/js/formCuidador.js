@@ -1,3 +1,4 @@
+let datos;
 
 function insertarCuidador() {
     let nombre = document.getElementById("txtNombreCuidador").value;
@@ -66,3 +67,10 @@ function insertarCuidador() {
                     }); }
             });
 }
+
+
+
+
+
+
+

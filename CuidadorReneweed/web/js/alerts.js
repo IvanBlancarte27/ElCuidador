@@ -19,12 +19,12 @@ function inicioDeSesio(){
     toast.addEventListener('mouseleave', Swal.resumeTimer)
     
   }
-})
+});
 
 Toast.fire({
   icon: 'success',
   title: 'Iniciando Sesion con exito'
-})
+});
 
     
 }

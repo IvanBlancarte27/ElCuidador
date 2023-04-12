@@ -1,0 +1,139 @@
+<div class="row">
+            <div class="col-6 containerForm">
+                <h5 style="text-align:center;">Datos Personales</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input id="txtNombreCuidador" placeholder="Nombre" class="input-field" type="text">
+                                <label for="txtNombreCuidador" class="input-label">Nombre</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="input-container">
+                                <input id="txtPrimerApellidoCuidador" placeholder="Primer Apellido" class="input-field" type="text">
+                                <label for="txtPrimerApellidoCuidador" class="input-label">Primer Apellido:</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input id="txtSegundoApellidoCuidador" placeholder="Segundo Apellido" class="input-field" type="text">
+                                <label for="txtSegundoApellidoCuidador" class="input-label">Segundo Apellido</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="input-container">
+                                <input id="txtRFC" placeholder="RFC" class="input-field" type="text">
+                                <label for="txtRFC" class="input-label">RFC</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input id="txtTelefonoCasaCuidador" placeholder="Telefono de Casa" class="input-field" type="text">
+                                <label for="txtTelefonoCasaCuidador" class="input-label">Telefono de Casa</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="input-container">
+                                <input id="txtTelefonoMovilCuidador" placeholder="Telefono Movil" class="input-field" type="text">
+                                <label for="txtTelefonoMovilCuidador" class="input-label">Telefono Movil</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <select id="txtGeneroCuidador" class="input-field" style="width:470%;">
+                                    <option id="opMaculino"> Masculino</option>
+                                    <option id="opFemenino"> Femenino</option>
+                                    <option id="opOtro"> Otro</option>
+                                </select>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input id="txtEmail" placeholder="E-mail" class="input-field" type="email">
+                                <label for="txtEmail" class="input-label">E-mail</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="input-container">
+                                <input id="txtFechaNacCuidador" placeholder="Fecha de nacimiento" class="input-field" type="date" style="width:155%">
+                                <label for="txtFechaNacCuidador" class="input-label" >Fecha de Nacimiento</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imput-container2">
+                            <div class="input-container">
+                                <input id="txtUsuarioCuidador" placeholder="User" class="input-field" type="text">
+                                <label for="txtUsuarioCuidador" class="input-label">User</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="input-container">
+                                <input id="txtPasswordCuidador" placeholder="Password" class="input-field" type="password">
+                                <label for="txtPasswordCuidador" class="input-label">Password</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-6 containerForm">
+                <h5 style="text-align:center;">Documentos</h5>
+                <div>
+                    <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
+                    <input id="imgIne" name="pdf" type="file" accept="application/pdf" />
+                    <a style="color:blue;">INE</a>
+                </div>
+
+                <div>
+                    <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
+                    <input id="imgCartaRecomendacion" name="pdf" type="file" accept="application/pdf" />
+                    <a style="color:blue;">Carta de Recomendacio</a>
+                </div >
+
+                <div>
+                    <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
+                    <input id="imgCartaAntecedentes" name="pdf" type="file" accept="application/pdf" />
+                    <a style="color:blue;">Carta de Antecedentes Penales</a>
+                </div>
+
+                <div>
+                    <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
+                    <input id="imgComprobanteDomicilio" name="pdf" type="file" accept="application/pdf" />
+                    <a style="color:blue;">Comprobante de Domicilio</a>
+                </div>
+
+                <div>
+                    <img src="img/camara.svg" alt="alt" width="100"/>
+                    <input id="imgFotoPerfil" accept="image/*" type="file" multiple>
+                    <a style="color:blue;">Fotografia</a>
+                </div>
+                <div style="text-align:center; ">
+                    <button onclick="insertarCuidador();" class="btn btn-primary">Registrar</button>
+                </div>
+            </div>
+        </div>

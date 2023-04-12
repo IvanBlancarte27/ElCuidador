@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.sql.SQLException;
+import java.util.List;
 import org.utl.dsm.cuidador.Cuidador;
 import org.utl.dsm.cuidador.controller.ControllerCuidador;
 
@@ -44,4 +45,25 @@ public class CuidadorREST extends Application{
         return  Response.status(Response.Status.OK).entity(out).build();
     
     }
+    
+    
+    @Path("getAll")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAll() {
+        String out = "";
+        try {
+
+            ControllerCuidador ctCuidador = new ControllerCuidador();
+            List<Cuidador> lente_contactos = ctCuidador.getAllCuidador();
+            Gson gson = new Gson();
+            out = gson.toJson(lente_contactos);
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            out = "{\"error\":\"" + ex.toString() + "\"}";
+        }
+        return Response.status(Response.Status.OK).entity(out).build();
+    }
 }
+
+

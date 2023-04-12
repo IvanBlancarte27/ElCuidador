@@ -10,6 +10,12 @@ import java.sql.Types;
 import java.sql.SQLException;
 import org.utl.dsm.cuidador.Cuidador;
 import org.utl.dsm.db.ConexionMySQL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import org.utl.dsm.cuidador.Persona;
+import org.utl.dsm.cuidador.Usuario;
 
 /**
  *
@@ -80,4 +86,66 @@ public class ControllerCuidador {
         return idCuidadorOut;
         
     }
+    
+    public List<Cuidador> getAllCuidador() throws SQLException{
+        
+        String qr = "SELECT * FROM v_cuidador;";
+        
+        ConexionMySQL connMySQL = new ConexionMySQL();
+        //Abrimos la conexion con la Base de Datos:
+        Connection conn = connMySQL.open();
+        //Con este objeto ejecutaremos la consulta:
+        PreparedStatement pstmt = conn.prepareStatement(qr);
+        //Aqui Guardaremos los resultados de la consulta:
+        ResultSet rs = pstmt.executeQuery();
+        List<Cuidador> empleado = new ArrayList<>();
+
+        //Cuando una condicion no lleva llavez 
+        while (rs.next()) {
+            empleado.add(fill(rs));
+        }
+        rs.close();
+        pstmt.close();
+        connMySQL.close();
+        return empleado;
+    }
+    
+    private Cuidador fill(ResultSet rs) throws SQLException {
+        //Creamos un Objeto de Tipo empleado
+        Persona persona = new Persona();
+        Usuario usuario = new Usuario();
+        Cuidador cuidador =  new Cuidador();
+
+        persona.setIdPersona(rs.getInt("idPersona"));
+        persona.setNombre(rs.getString("nombre"));
+        persona.setPrimerApellido(rs.getString("primerApellido"));
+        persona.setSegundoApellido(rs.getString("segundoApellido"));
+        persona.setGenero(rs.getString("genero"));
+        
+        usuario.setIdUsuario(rs.getInt("idUsuario"));
+        usuario.setNombreUsuario(rs.getString("nombreUsuario"));
+        usuario.setContrasenia(rs.getString("contrasenia"));
+        usuario.setRol(rs.getString("rol"));
+        
+        cuidador.setUsuario(usuario);
+        cuidador.setPersona(persona);
+
+        cuidador.setIdCuidador(rs.getInt("idCuidador"));
+        cuidador.setNumeroUnico(rs.getString("numeroUnico"));
+        cuidador.setFotografiaIne(rs.getString("fotoINE"));
+        cuidador.setCartaRecomendacion(rs.getString("cartaRecomendacion"));
+        cuidador.setCartaAntecedentesPenales(rs.getString("cartaAntecedentesPenales"));
+        cuidador.setComprobanteDomicilio(rs.getString("comprobanteDomicilio"));
+        cuidador.setRfc(rs.getString("rfc"));
+        cuidador.setFechaNacimiento(rs.getString("fechaNac"));
+        cuidador.setNumTelefonoMovil(rs.getString("telefonoMovil"));
+        cuidador.setNumTelefonoCasa(rs.getString("telefonoCasa"));
+        cuidador.setCorreo(rs.getString("correo"));
+        cuidador.setFotografia(rs.getString("fortografia"));
+
+        
+
+        return cuidador;
+    }
+
 }
