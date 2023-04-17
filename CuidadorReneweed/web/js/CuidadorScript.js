@@ -44,5 +44,15 @@ function cargarDatos(){
     document.getElementById("txtPasswordCuidador").value=contrasenia;
     document.getElementById("txtEmail").value=emai;
     
+}
+
+function cargarDocumentos() {
+    cuidador=JSON.parse(localStorage.getItem("currentUser"));
+    
+    let ine=cuidador.fotorafiaIne;
+    let cartaRecomendacion=cuidador.cartaRecomendacion;
+    let cartaAntecedentes=cuidador.cartaAntecedentesPenles;
+    let comprobanteDom=cuidador.comprobanteDomicilio;
+    
     
 }

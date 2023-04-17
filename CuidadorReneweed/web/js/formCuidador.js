@@ -1,4 +1,3 @@
-let datos;
 
 function insertarCuidador() {
     let nombre = document.getElementById("txtNombreCuidador").value;
@@ -27,8 +26,14 @@ function insertarCuidador() {
     let fecha = dia + "/" + mes + "/" + año;
 
 
-    let persona = {nombre: nombre, primerApellido: primerAp, segundoApellido: segundoAp, genero: genero};
-    let user = {nombreUsuario: usuario, contrasenia: contrasenia, rol: ""};
+    let persona = {nombre: nombre,
+        primerApellido: primerAp,
+        segundoApellido: segundoAp,
+        genero: genero};
+
+    let user = {nombreUsuario: usuario,
+        contrasenia: contrasenia,
+        rol: ""};
 
     let cuidador = JSON.stringify({fotografiaIne: docIne,
         cartaRecomendacion: docCartaRecomen,
@@ -70,11 +75,60 @@ function insertarCuidador() {
 }
 
 
+ function actualizarCuidador() {
+    let cu=JSON.parse(localStorage.getItem("currentUser"));
+    let nombre = document.getElementById("txtNombreCuidador").value;
+    let primerAp = document.getElementById("txtPrimerApellidoCuidador").value;
+    let segundoAp = document.getElementById("txtSegundoApellidoCuidador").value;
+    let rfc = document.getElementById("txtRFC").value;
+    let telCasa = document.getElementById("txtTelefonoCasaCuidador").value;
+    let telMovil = document.getElementById("txtTelefonoMovilCuidador").value;
+    let genero = document.getElementById("txtGeneroCuidador").value;
+    let correo = document.getElementById("txtEmail").value;
+    let usuario = document.getElementById("txtUsuarioCuidador").value;
+    let contrasenia = document.getElementById("txtPasswordCuidador").value;
+    let email = document.getElementById("txtEmail").value;
+    
+    let idCuidador=cu.idCuidador;
+    let idPersona=cu.persona.idPersona;
+    let idUsuario=cu.usuario.idUsuario;
+    
+    let persona = {nombre: nombre,
+        primerApellido: primerAp,
+        segundoApellido: segundoAp,
+        genero: genero,
+        idPersona:idPersona
+    };
+    let user = {nombreUsuario: usuario,
+                contrasenia: contrasenia,
+                idUsuario:idUsuario
+    };
+
+    let cuidador = JSON.stringify({ persona: persona,
+                                    usuario: user,
+                                    rfc: rfc,
+                                    numTelefonoMovil: telMovil,
+                                    numTelefonoCasa: telCasa,
+                                    correo: email,
+                                    idCuidador:idCuidador
+    });
+    let parametros = new URLSearchParams({datos: cuidador});
 
 
+    fetch("http://localhost:8080/CuidadorReneweed/api/cuidador/actualizar",
+            {
+                method: 'POST',
+                body: (parametros),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
+            }).then(response => response.json())
+            .then(data => {
 
+                if (data.error)
+                    alert(data.error);
+                else {
+                    
+                }
+            });
 
-
-
-
+}
 

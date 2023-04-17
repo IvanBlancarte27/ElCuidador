@@ -47,4 +47,32 @@ public class LoginREST extends Application {
         return Response.status(Response.Status.OK).entity(out).build();
 
     }
+    
+    
+    @Path("acceder")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(@FormParam("usuario") @DefaultValue("") String user) {
+        Gson gson = new Gson();
+        String out = "";
+        Usuario usuario = new Usuario();
+
+        usuario = gson.fromJson(user, Usuario.class);
+
+        ControllerLogin login = new ControllerLogin();
+        try {
+            String respuesta = login.buscar(usuario);
+            out = respuesta;
+        } catch (JsonParseException jpe) {
+            out = """
+                   {"error": "Error de formato"}
+                   """;
+        } catch (SQLException ex) {
+            out = "{\"error\":\"" + ex.toString() + "\"}";
+        }
+
+        return Response.status(Response.Status.OK).entity(out).build();
+
+    }
+    
 }

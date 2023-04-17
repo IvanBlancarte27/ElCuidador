@@ -24,8 +24,9 @@ public class Prueba {
         
         //probarConexion();
         //insertarAdultoMayor();
-        insertarCuidador();
-
+        //insertarCuidador();
+        
+        login();
     }
     
     
@@ -73,5 +74,14 @@ public class Prueba {
         System.out.println(cc.insertarCuidador(cuidador));
     
     }
-    
+    public static void login() throws SQLException{
+        Usuario u =  new Usuario();
+        
+        u.setNombreUsuario("AngelSaoud");
+        u.setContrasenia("");
+        
+        ControllerLogin cl =  new ControllerLogin();
+        
+        cl.buscar(u);
+    }
 }

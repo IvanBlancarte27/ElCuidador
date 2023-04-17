@@ -9,7 +9,7 @@ function loginCuidador()
     let params = new URLSearchParams(usuario);
     alert(usuario);
 
-    fetch("api/login/loginCuidador",
+    fetch("api/login/acceder",
             {method: "POST",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
                 body: params
@@ -34,6 +34,9 @@ function loginCuidador()
                     localStorage.setItem('currentUser', JSON.stringify(data));
                      window.location.replace('cuidador/cuidador.html');
 
+                }if(data.usuario.rol === 'Adulto Mayor'){
+                    localStorage.setItem('currentUserAC', JSON.stringify(data));
+                     window.location.replace('adultoMayor/adultoMayor.html');
                 } else
                     Swal.fire('', 'Por el momento, solo los administradores tienen acceso al sistema.', 'warning');
             });

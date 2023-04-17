@@ -29,7 +29,7 @@ Toast.fire({
     
 }
 
-export function mandarConfirmacionGuardar()
+function mandarConfirmacionGuardar()
 {
     Swal.fire({
         position: 'top-center',

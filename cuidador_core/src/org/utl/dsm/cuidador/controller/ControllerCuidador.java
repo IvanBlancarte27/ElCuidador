@@ -110,6 +110,50 @@ public class ControllerCuidador {
         return empleado;
     }
     
+    
+    public void actualizarCuidador(Cuidador cuidador) throws SQLException {
+       
+        String query = "{call actualizarCuidador(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+
+        //3. Conectarse a la base de Datos
+        ConexionMySQL objConexionMySQL = new ConexionMySQL();
+        Connection conn = objConexionMySQL.open();
+
+       
+        CallableStatement cstmt = conn.prepareCall(query);
+
+        
+        cstmt.setString(1,cuidador.getPersona().getNombre());
+        cstmt.setString(2, cuidador.getPersona().getPrimerApellido());
+        cstmt.setString(3, cuidador.getPersona().getSegundoApellido());       
+        cstmt.setString(4,cuidador.getPersona().getGenero());
+        
+        
+        cstmt.setString(5, cuidador.getUsuario().getNombreUsuario());
+        cstmt.setString(6, cuidador.getUsuario().getContrasenia());
+        
+        
+        cstmt.setString(7, cuidador.getRfc());
+        cstmt.setString(8, cuidador.getNumTelefonoMovil());
+        cstmt.setString(9, cuidador.getNumTelefonoCasa());
+        cstmt.setString(10, cuidador.getCorreo());
+        
+        cstmt.setInt(11, cuidador.getPersona().getIdPersona());
+        cstmt.setInt(12, cuidador.getIdCuidador());
+        cstmt.setInt(13, cuidador.getUsuario().getIdUsuario());
+       
+       
+
+        cstmt.executeUpdate();
+
+       
+        cstmt.close();
+        conn.close();
+        objConexionMySQL.close();
+
+    }
+    
+    
     private Cuidador fill(ResultSet rs) throws SQLException {
         //Creamos un Objeto de Tipo empleado
         Persona persona = new Persona();

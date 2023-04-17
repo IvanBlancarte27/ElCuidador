@@ -4,11 +4,16 @@
  */
 package org.utl.dsm.cuidador.controller;
 
+import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
+import org.utl.dsm.cuidador.AdultoMayor;
 import org.utl.dsm.cuidador.Cuidador;
+import org.utl.dsm.cuidador.FamiliarCargo;
+import org.utl.dsm.cuidador.Medico;
 import org.utl.dsm.cuidador.Persona;
 import org.utl.dsm.cuidador.Usuario;
 import org.utl.dsm.db.ConexionMySQL;
@@ -40,6 +45,91 @@ public class ControllerLogin {
         
         return cuidador;
     }
+        
+        public AdultoMayor accederAdultoMayors(Usuario u) throws SQLException {
+
+        String sql = "SELECT * FROM v_adultoss WHERE nombreUsuario='" + u.getNombreUsuario() + "' AND contrasenia='" + u.getContrasenia() + "'";
+
+        ConexionMySQL connMySQL = new ConexionMySQL();
+
+        Connection conn = connMySQL.open();
+
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        ResultSet rs = pstmt.executeQuery();
+        AdultoMayor lisA = null;
+
+        while (rs.next()) {
+            lisA = fill(rs);
+        }
+        rs.close();
+        pstmt.close();
+        connMySQL.close();
+        return lisA;
+    }
+
+   
+        
+        public String buscar(Usuario u) throws SQLException {
+        String qry = "SELECT*FROM usuario WHERE nombreUsuario = '" + u.getNombreUsuario() + "' and contrasenia = '" + u.getContrasenia() + "' ;";
+
+        System.out.println(qry);
+
+        ConexionMySQL conexionMySQL = new ConexionMySQL();
+
+        Connection con = conexionMySQL.open();
+
+        Statement stmnt = con.createStatement();
+
+        ResultSet rs = stmnt.executeQuery(qry);
+
+        String contrasenia = "";
+        String nomUsuario = "";
+        String rol = "";
+        if (rs.next()) {
+            contrasenia = rs.getString("contrasenia");
+            nomUsuario = rs.getString("nombreUsuario");
+            rol = rs.getString("rol");
+            
+            System.out.println(contrasenia +" "+ nomUsuario +" "+ rol);
+        }
+
+        String out = seleccionarVista(contrasenia, nomUsuario, rol);
+        System.out.println(out);
+        
+        return out;
+    }
+
+    public String seleccionarVista(String con, String user, String rol) throws SQLException {
+
+        String out = "";
+        
+        switch (rol) {
+            case "Adulto Mayor":
+                Gson gson = new Gson();
+                Usuario u = new Usuario();
+                u.setContrasenia(con);
+                u.setNombreUsuario(user);
+
+                AdultoMayor a = accederAdultoMayors(u);
+                
+                out = gson.toJson(a);
+                break;
+            case "Cuidador":
+                Gson gson2 = new Gson();
+                Usuario us = new Usuario();
+                us.setContrasenia(con);
+                us.setNombreUsuario(user);
+
+                Cuidador c = accederCuidador(us);
+                
+                out = gson2.toJson(c);
+                break;
+        }
+        
+        return out;
+    }
+
 
         private Cuidador fillCuidador(ResultSet rs) throws SQLException {
         //Creamos un Objeto de Tipo empleado
@@ -77,5 +167,53 @@ public class ControllerLogin {
         
 
         return cuidador;
+    }
+        
+    private AdultoMayor fill(ResultSet rs) throws SQLException {
+
+        AdultoMayor a = new AdultoMayor();
+        Persona persona = new Persona();
+
+        persona.setIdPersona(rs.getInt("idPersona"));
+        persona.setSegundoApellido(rs.getString("segundoApellido"));
+        persona.setPrimerApellido(rs.getString("primerApellido"));
+        persona.setNombre(rs.getString("nombre"));
+        persona.setGenero(rs.getString("genero"));
+
+        a.setPersona(persona);
+
+        a.setFotografia(rs.getString("fortografia"));
+        a.setNumeroUnico(rs.getString("numeroUnico"));
+        a.setFechaNacimiento(rs.getString("fechaNac"));
+        a.setIdAdultoMayor(rs.getInt("idAdultoMayor"));
+
+        //Forma de meter datos declarando el objeto dentro del empleado
+        a.setUsuario(new Usuario());
+        a.getUsuario().setContrasenia(rs.getString("contrasenia"));
+        a.getUsuario().setIdUsuario(rs.getInt("idUsuario"));
+        a.getUsuario().setNombreUsuario(rs.getString("nombre"));
+        a.getUsuario().setRol(rs.getString("rol"));
+
+        a.setMedico(new Medico());
+        a.getMedico().setNumeroTelefono(rs.getString("numTelefonosss"));
+        //a.getMedico().getPersona().setNombre(rs.getString("numeroTelefono"));
+        //a.getMedico().getPersona().setPrimerApellido(rs.getString("primerApellidoMedico"));
+//        a.getMedico().getPersona().setSegundoApellido(rs.getString("segundoApellidoMedico"));
+//        a.getMedico().getPersona().setGenero(rs.getString("generoMedico"));
+        a.getMedico().setIdMedico(rs.getInt("idMedico"));
+        a.getMedico().setPersona(new Persona());
+        a.getMedico().getPersona().setIdPersona(rs.getInt("idPersonas"));
+
+        a.setFamiliarCargo(new FamiliarCargo());
+        a.getFamiliarCargo().setNumeroTelefono(rs.getString("numTelefono"));
+//        a.getFamiliarCargo().getPersona().setNombre(rs.getString("nomFamiliar"));
+//        a.getFamiliarCargo().getPersona().setPrimerApellido(rs.getString("primerApellidoFamiliar"));
+//        a.getFamiliarCargo().getPersona().setSegundoApellido(rs.getString("segundoApellidoFamiliar"));
+//        a.getFamiliarCargo().getPersona().setGenero(rs.getString("generoFamiliar"));
+        a.getFamiliarCargo().setPersona(new Persona());
+        a.getFamiliarCargo().getPersona().setIdPersona(rs.getInt("idPersonasss"));
+        a.getFamiliarCargo().setIdFamiliarCargo(rs.getInt("idFamiliarACargo"));
+
+        return a;
     }
 }
