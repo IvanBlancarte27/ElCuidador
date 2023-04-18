@@ -1,13 +1,15 @@
 // COMENZANDO EN GOOGLE MAPS
 let cargarMapa;
+let lat;
+let lng;
 
-function verMapa() {
+export function verMapa() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
             // Hacer algo con la ubicación obtenida
-            alert(lat + " " + lng);
+            // alert(lat + " " + lng);
 
             cargarMapa = new google.maps.Map(document.getElementById("contenidoMapa"), {
                 center: {
@@ -24,48 +26,61 @@ function verMapa() {
                 },
                 map: cargarMapa
             })
+
+            let persona2 = new google.maps.Marker({
+                position: {
+                    lat: 21.07087720853898,
+                    lng: -101.56375151054621
+                },
+                map: cargarMapa
+            });
+
+            let persona3 = new google.maps.Marker({
+                position: {
+                    lat: 21.07773093695163,
+                    lng: -101.59335483628323
+                },
+                map: cargarMapa
+            });
         });
+
     } else {
         // El navegador no soporta geolocalización
         alert("no soporto");
     }
+    
 }
 
-function localizar() {
+export function localizar() {
+    var directionsService = new google.maps.DirectionsService();
 
-    let json = JSON.stringify({
+    var inicio = { lat: lat, lng: lng };
+    var fin = { lat: 21.077944184665803, lng: -101.61679955712157 };
 
-        homeMobileCountryCode: 334,
-        homeMobileNetworkCode: 03,
-        radioType: "LTE",
-        carrier: "Movistar"
-    })
+    var solicitud = {
+        origin: inicio,
+        destination: fin,
+        travelMode: 'DRIVING'
+    };
 
-    let parametros = new URLSearchParams({ data: json })
+    let resultado;
+    directionsService.route(solicitud, function (resultado, estado) {
+        if (estado == 'OK') {
+            console.log(resultado.routes[0].legs[0]); // Muestra la ruta en la consola
 
-    fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBrXEvC_p4TrXp-tq2W8qJLbFt3p5JvqAA',
-        {
-            method: 'POST',
-            body: (parametros),
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }
-        }).then(response => response.json())
-        .then(data => {
-            //alert(JSON.stringify(data));
-
-            let lat = data.location.lat;
-            
-            let lng = data.location.lng;
-
-            
-
-            let iconoMarker = new google.maps.Marker({
-                position: {
-                    lat: lat,
-                    lng: lng
-                },
-                map: cargarMapa
-            })
-        });
+            // Crea una ruta en el mapa
+            var ruta = new google.maps.DirectionsRenderer({
+                map: cargarMapa,
+                directions: resultado,
+                suppressMarkers: true,
+                polylineOptions: {
+                    strokeColor: 'blue',
+                    strokeWeight: 6,
+                    strokeOpacity: 0.7
+                }
+            });
+        }
+    });
 }
 
 

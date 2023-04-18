@@ -39,8 +39,7 @@ function loginCuidador()
                      window.location.replace('adultoMayor/adultoMayor.html');
                 } else
                     Swal.fire('', 'Por el momento, solo los administradores tienen acceso al sistema.', 'warning');
-            });
-    
+            });    
 }
 
 function creaAnAcount() {
@@ -70,5 +69,9 @@ function entrar() {
     }
 
 
+}
+
+function logOut() {
+    window.location.replace('lo');
 }
 

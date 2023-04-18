@@ -13,318 +13,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link rel="stylesheet" type="text/css" href="../style/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css">
         <link rel="stylesheet" type="text/css" href="../style/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css">
         <link rel="stylesheet" type="text/css" href="../style/font_awesome_5_15_3/css/fontawesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
         <link href="../style/estilosAdultoMayor.css" rel="stylesheet" type="text/css"/>
         <link href="../style/formsActualizar.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-light navM" style="background-color:#6096BA; ">
-
-                <a class="navbar-brand" href="#" style="margin-left:10px;"></a>
-                <div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <div>
-                            <a id="dropdownMenuProductos" class="navbar-brand dropdown-toggle optica_menu_item" href="#" role="button" 
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../img/Cuidador_Logo.svg" width="30" height="30"  class="d-inline-block align-text-top"/>
-
-                            </a>
-                            <ul class="dropdown-menu producto_item_menu" aria-labelledby="dropdownMenuProductos">
-                                <li><a class="dropdown-item" href="#" onclick="logout();">Cerrar mi sesi&oacute;n</a></li>
-                            </ul>
-                        </div> 
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-
-
-
-                    </ul>
-                </div>
-                <div class="">
-                </div>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <div class="header_img"></div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> 
+                    <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Cuidador</span> </a>
+                    <div class="nav_list"> <a href="#" onclick="cargarMapa();" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Area de Trabajo</span> </a>
+                        <a onclick="cargarVentanaFormulario();" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Perfil</span> </a> 
+                        <a class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a> 
+                        <a class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> 
+                        <a class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> 
+                        <a class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> </div>
+                </div>  <a onclick="logout();" href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesion</span> </a>
             </nav>
         </div>
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card00" style="margin:10px; width:98%; height:103%; ">
-                    <div style="text-align: center">
-                        <div class="" style="border-radius: 30px; ">
-                            <img src="../img/imgPerfilCuidador.png" width="250" height="250" alt="centered image" style="margin-top:10%;"/>
-                        </div>
-                    </div>
-                    <h4 style="margin: 20px">
-                        Detalle
-                        <span style="margin-left: 265px">
-                            <button  onclick="cargarDatos();" type="button" class=" btnAñadir btn btn-primary" data-bs-toggle="modal" data-bs-target="#miVentanaModal">
-                                Abrir ventana modal
-                            </button>
-                        </span>
-                    </h4>
-                    <div style="margin: 20px;">
-                        <div>
-                            <label style="color:#3085d6">Nombre:</label>
-                            <h6>Angel Aguayo Zuñiga</h6>
-                            <label style="color:#3085d6">Numero de Telefono:</label>
-                            <h6>477 118 9966</h6>
-                            <h6>456 120 8907</h6>
-                            <label style="color:#3085d6">Correo Elctronico:</label>
-                            <h6>angel453@gmail.com</h6>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="modal fade" id="miVentanaModal" tabindex="-1" aria-labelledby="miVentanaModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="miVentanaModalLabel">Informacion Personal</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="col-6 containerForm">
-                                    <h5 style="text-align:center;">Datos Personales</h5>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="imput-container2">
-                                                <div class="input-container">
-                                                    <input id="txtNombreCuidador" placeholder="Nombre" class="input-field" type="text">
-                                                    <label for="txtNombreCuidador" class="input-label">Nombre</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="input-container">
-                                                    <input id="txtPrimerApellidoCuidador" placeholder="Primer Apellido" class="input-field" type="text">
-                                                    <label for="txtPrimerApellidoCuidador" class="input-label">Primer Apellido:</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="input-container">
-                                                    <input id="txtSegundoApellidoCuidador" placeholder="Segundo Apellido" class="input-field" type="text">
-                                                    <label for="txtSegundoApellidoCuidador" class="input-label">Segundo Apellido</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="imput-container2">
-
-                                                <div class="input-container">
-                                                    <input id="txtRFC" placeholder="RFC" class="input-field" type="text">
-                                                    <label for="txtRFC" class="input-label">RFC</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="input-container">
-                                                    <input id="txtTelefonoCasaCuidador" placeholder="Telefono de Casa" class="input-field" type="text">
-                                                    <label for="txtTelefonoCasaCuidador" class="input-label">Telefono de Casa</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="input-container">
-                                                    <input id="txtTelefonoMovilCuidador" placeholder="Telefono Movil" class="input-field" type="text">
-                                                    <label for="txtTelefonoMovilCuidador" class="input-label">Telefono Movil</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="imput-container2">
-                                                <div class="input-container">
-                                                    <select id="txtGeneroCuidador" class="input-field" style="width:730%;">
-                                                        <option id="opMaculino"> Masculino</option>
-                                                        <option id="opFemenino"> Femenino</option>
-                                                        <option id="opOtro"> Otro</option>
-                                                    </select>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="imput-container2">
-                                                <div class="input-container">
-                                                    <input id="txtUsuarioCuidador" placeholder="User" class="input-field" type="text">
-                                                    <label for="txtUsuarioCuidador" class="input-label">User</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="input-container">
-                                                    <input id="txtPasswordCuidador" placeholder="Password" class="input-field" type="text">
-                                                    <label for="txtPasswordCuidador" class="input-label">Password</label>
-                                                    <span class="input-highlight"></span>
-                                                </div>
-                                                <div class="imput-container2">
-                                                    <div class="input-container">
-                                                        <input id="txtEmail" placeholder="E-mail" class="input-field" type="email">
-                                                        <label for="txtEmail" class="input-label">E-mail</label>
-                                                        <span class="input-highlight"></span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>    
-                                </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button onclick="actualizarCuidador()" type="button" class="btn btn-primary" >Guardar cambios</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mt-2">
-                <div class="row-cols-2">
-                    <div style="width:105%; height:55%;" class="row">
-                        <div class="card00">
-                            <div style="text-align: center; margin: 20px" >
-                                <img class="mt-2" src="../img/carpeta.png" width="150" height="150" alt="centered image"/>
-                            </div>
-                            <div style="text-align: center">
-                                <br>
-                                <h5>Documentos</h5>
-                                <button type="button" class="btn btn-primary btnAñadir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    Lanzar modal de fondo estático
-                                </button>
-                                <br><!-- comment -->
-                                <br><!-- comment -->
-                            </div>
-                        </div>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Título del modal</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="col-6 containerForm">
-                                            <h5 style="text-align:center;">Documentos</h5>
-                                            <div>
-                                                <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
-                                                <input id="imgIne" name="pdf" type="file" accept="application/pdf" />
-                                                <a style="color:blue;">INE</a>
-                                            </div>
-
-                                            <div>
-                                                <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
-                                                <input id="imgCartaRecomendacion" name="pdf" type="file" accept="application/pdf" />
-                                                <a style="color:blue;">Carta de Recomendacio</a>
-                                            </div >
-
-                                            <div>
-                                                <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
-                                                <input id="imgCartaAntecedentes" name="pdf" type="file" accept="application/pdf" />
-                                                <a style="color:blue;">Carta de Antecedentes Penales</a>
-                                            </div>
-
-                                            <div>
-                                                <img src="img/Pro Race Logo Template.svg" alt="alt" width="100"/>
-                                                <input id="imgComprobanteDomicilio" name="pdf" type="file" accept="application/pdf" />
-                                                <a style="color:blue;">Comprobante de Domicilio</a>
-                                            </div>
-
-                                            <div>
-                                                <img src="img/camara.svg" alt="alt" width="100"/>
-                                                <input id="imgFotoPerfil" accept="image/*" type="file" multiple>
-                                                <a style="color:blue;">Fotografia</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Comprendido</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                    <div style="width:105%; height:55%;" class="row mt-2">
-                        <div class="card00">
-                            <div style="text-align: center; margin: 20px" >
-                                <img class="mt-2" src="../img/Medicine.png" width="150" height="150" alt="centered image"/>
-                            </div>
-                            <div style="text-align: center">
-                                <br>
-                                <h5>Conocimientos Medicos</h5>
-                                <button class="btnAñadir p-2 btn-primary">Abrir</button>
-                                <br><br>
-                            </div>
-                        </div>
-                        <br><br><br>
-                        <br><br><br>
-                        <br><br><br>
-                        <br><br><br><br>
-                        <br><br><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mt-1">
-                <div class="card00" style="margin:10px; width:95%; height:103%;">
-                    <div class="" style="text-align: center; border-radius: 30px" >
-                        <img class="mt-2" src="../img/mapaUbic.png" width="300" height="300" alt="centered image"/>
-                    </div>
-                    <div style="text-align: center;">
-                        <br><br><br><br><br><br>
-                        <h4>¡A conseguir jale!</h4>
-                        <br>
-                        <div style="align-content: center; align-items: center">
-                            <div>
-                                <button class="buttonBuscar" onclick="cargarMapa();" >
-                                    <div class="svg-wrapper-1">
-                                        <div class="svg-wrapper">
-                                            <img height="40" width="40" src="../img/Cuidador_Logo.svg"/>
-
-                                        </div>
-                                    </div>
-                                    <span>Buscar</span>
-                                </button>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
+        <div class="height-100 bg-light" id="contenedor_principal">
+            <h4>Main Components</h4>
         </div>
     </body>
 
-    <script src="../style/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>  
+    <script src="../style/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/CuidadorScript.js" type="text/javascript"></script>
     <script src="../js/main.js" type="text/javascript"></script>
     <script src="../js/formCuidador.js" type="text/javascript"></script>
-
+    <script src="../js/formAdultoMayor.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEvC_p4TrXp-tq2W8qJLbFt3p5JvqAA"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>
 
 

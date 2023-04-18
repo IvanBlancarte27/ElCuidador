@@ -1,25 +1,39 @@
-function reguisterCuidador(){
+function reguisterCuidador() {
     window.location.replace('formCuidador.html');
-    
+
 }
 
-function reguisterAdultoMayor(){
+function reguisterAdultoMayor() {
     window.location.replace('formAdultoMayor.html');
-    
+
 }
 
+let cm = null;
 
-function cargarVentana() {
-    fetch('../ventanaModal/ventana.html')
+function cargarVentanaFormulario() {
+    fetch('formActualizar.html')
             .then(respuesta => {
                 return respuesta.text();
             })
             .then(datos => {
                 document.getElementById('contenedor_principal').innerHTML = datos;
-                import('./CuidadorScript.js').then(obj => {
+                import('./formCuidador.js').then(obj => {
                     cm = obj;
-                     cm.cargarInfo();
                 });
             });
-    
+}
+
+function cargarMapa() {
+    fetch('../mapa/mapa.html')
+            .then(respuesta => {
+                return respuesta.text();
+            })
+            .then(datos => {
+                document.getElementById('contenedor_principal').innerHTML = datos;
+                import('./mapa.js').then(obj => {
+                    cm = obj;
+                    cm.verMapa();
+                    getAll();
+                });
+            });
 }

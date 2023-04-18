@@ -86,11 +86,12 @@ function getAll() {
                 if (data.error) {
                     alert(data.error)
                 } else
-                    alert(JSON.stringify(data));
+                
                 cargarInformacion(data);
             });
 
 }
+getAll();
 
 function cargarInformacion(data) {
     adulto = data;
@@ -99,14 +100,14 @@ function cargarInformacion(data) {
     for (var i = 0; i < adulto.length; i++) {
         contenido += "<div style='border-radius:30px;background: #ffffff;box-shadow: 15px 15px 30px #666666,-15px -15px 30px #ffffff; margin: 10px; width:500px; height:200px; margin-left:150px;'";
         contenido += "<div>";
-        contenido += "<h3 class='adultos'>Adulto Mayor</h3>";
+        contenido += "<h3 class='adultos' style='margin-right:10px;  border-radius:20px; text-align: center; align-content:center; '>Adulto Mayor</h3>";
         let nombre = adulto[i].persona.nombre;
         let primAp=adulto[i].persona.primerApellido;
         let segAp=adulto[i].persona.segundoApellido;
         contenido += "<h5 class='nombres'>" +nombre+" "+" "+primAp+' '+' '+segAp+ "</h5>";
         let num = adulto[i].familiarCargo.numeroTelefono;
         contenido += "<h5 class='nombres'>" + num + "</h5>";
-        contenido += "<button class='btn btn-secondary booton' onclick=' '>Solicitar Servicio</button>";
+        contenido += "<button class='btn btn-secondary booton' onclick='mandarMensajeSMS();' style='margin-right:10px;  border-radius:20px; text-align: center; align-content:center; '>Solicitar Servicio</button>";
         contenido += "</div>";
         contenido += "</div>";
 
@@ -115,5 +116,57 @@ function cargarInformacion(data) {
     document.getElementById("adultosMayores").innerHTML = contenido;
 
 }
+
+function mandarMensajeSMS()
+{
+
+    const accountSid = 'AC64c7fe36c69b903f60c8d60441809970';  // Reemplaza con el Account SID DE TWILO
+    const authToken = '6f0f19baa0c3f82d3e3d1459246b0b14';  // Reemplaza con la auteticacion de twilo 
+    const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+
+    const data = {
+        To: '+524776793407', // Reemplaza con el número de teléfono del destinatario en formato E.164
+        From: '+15856696123', // Reemplaza con tu número de teléfono de Twilio en formato E.164
+        Body: 'Tu cuidador va en camino!', // Reemplaza con el mensaje que deseas enviar
+    };
+    Swal.fire({
+        title: '¿Te gustaría que (NOMBRE) te acompañe?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                    'En un momento llegará tu cuidador :)!',
+                    'Estar atento para recibirlo',
+                    'success'
+                     
+                    );
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': `Basic ${btoa(`${accountSid}:${authToken}`)}`, // Codifica las credenciales de autenticación en Base64
+                },
+                body: new URLSearchParams(data).toString(), // Convierte los datos a una cadena de consulta URL codificada
+            })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
+                    
+        } else if (!result.isConfirmed) {
+            Swal.fire(
+                    'Te invitamos a buscar a un cuidador que te agrade',
+                    'Queremos lo mejor para tí',
+                    'info'
+                    );
+        }
+    });
+}
+
+
+
 
 
