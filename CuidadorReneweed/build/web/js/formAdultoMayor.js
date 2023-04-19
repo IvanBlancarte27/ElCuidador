@@ -215,7 +215,7 @@ function cargarInformacion(data) {
 
     }
 
-    //document.getElementById("adultosMayores").innerHTML = contenido;
+    document.getElementById("adultosMayores").innerHTML = contenido;
 
 }
 
