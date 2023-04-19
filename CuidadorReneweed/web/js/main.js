@@ -19,6 +19,8 @@ function cargarVentanaFormulario() {
                 document.getElementById('contenedor_principal').innerHTML = datos;
                 import('./formCuidador.js').then(obj => {
                     cm = obj;
+                    cargarDatos();
+                    cargarInfoADivPerfil();
                 });
             });
 }
@@ -34,6 +36,21 @@ function cargarMapa() {
                     cm = obj;
                     cm.verMapa();
                     getAll();
+                });
+            });
+}
+
+function cargarVentanaFormularioAdulto() {
+    fetch('formActualizarAdulto.html')
+            .then(respuesta => {
+                return respuesta.text();
+            })
+            .then(datos => {
+                document.getElementById('contenedor_principal').innerHTML = datos;
+                import('./formAdultoMayor.js').then(obj => {
+                    cm = obj;
+                    cargarDatos();
+                    cargarInfoADivPerfil();
                 });
             });
 }

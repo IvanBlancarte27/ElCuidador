@@ -95,10 +95,8 @@
   width: 600px;
   height:650px;
   border-radius: 20px;
-  padding: 40px;
   box-sizing: border-box;
   background: #D4E6F1;
-  margin-left:30px;
 }
 
 
@@ -107,10 +105,8 @@
   width: 750px;
   height:300px;
   border-radius: 20px;
-  padding: 40px;
   box-sizing: border-box;
   background: #D4E6F1;
-  margin-left:20px;
 }
 
 .containerFormAdulto_datosMedic{
@@ -118,8 +114,6 @@
   width: 750px;
   height:300px;
   border-radius: 20px;
-  padding: 40px;
   box-sizing: border-box;
   background: #D4E6F1;
-  margin-left:20px;
 }

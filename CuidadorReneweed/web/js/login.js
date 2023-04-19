@@ -36,7 +36,7 @@ function loginCuidador()
 
                 }if(data.usuario.rol === 'Adulto Mayor'){
                     localStorage.setItem('currentUserAC', JSON.stringify(data));
-                     window.location.replace('adultoMayor/adultoMayor.html');
+                     window.location.replace('adultoMayor/adultoMayorr.html');
                 } else
                     Swal.fire('', 'Por el momento, solo los administradores tienen acceso al sistema.', 'warning');
             });    

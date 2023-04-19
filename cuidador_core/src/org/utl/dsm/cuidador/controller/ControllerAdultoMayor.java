@@ -110,7 +110,7 @@ public class ControllerAdultoMayor {
 
     public List<AdultoMayor> getAll() throws SQLException {
 
-        String sql = "SELECT * FROM v_Adultoss " + ";";
+        String sql = "SELECT * FROM v_adultomayor " + ";";
 
         ConexionMySQL connMySQL = new ConexionMySQL();
 
@@ -135,10 +135,10 @@ public class ControllerAdultoMayor {
         AdultoMayor a = new AdultoMayor();
         Persona persona = new Persona();
 
-        persona.setSegundoApellido(rs.getString("segundoApellido"));
-        persona.setPrimerApellido(rs.getString("primerApellido"));
-        persona.setNombre(rs.getString("nombre"));
-        persona.setGenero(rs.getString("genero"));
+        persona.setSegundoApellido(rs.getString("segundoApellidoAdulto"));
+        persona.setPrimerApellido(rs.getString("primerApellidoAdulto"));
+        persona.setNombre(rs.getString("nombreAdulto"));
+        persona.setGenero(rs.getString("generoAdulto"));
 
         a.setPersona(persona);
 
@@ -151,23 +151,27 @@ public class ControllerAdultoMayor {
         a.setUsuario(new Usuario());
         a.getUsuario().setContrasenia(rs.getString("contrasenia"));
         a.getUsuario().setIdUsuario(rs.getInt("idUsuario"));
-        a.getUsuario().setNombreUsuario(rs.getString("nombre"));
+        a.getUsuario().setNombreUsuario(rs.getString("nombreUsuario"));
         a.getUsuario().setRol(rs.getString("rol"));
 
         a.setMedico(new Medico());
-        a.getMedico().setNumeroTelefono(rs.getString("numTelefonosss"));
-//        a.getMedico().getPersona().setNombre(rs.getString("nomMedico"));
-//        a.getMedico().getPersona().setPrimerApellido(rs.getString("primerApellidoMedico"));
-//        a.getMedico().getPersona().setSegundoApellido(rs.getString("segundoApellidoMedico"));
-//        a.getMedico().getPersona().setGenero(rs.getString("generoMedico"));
+        a.getMedico().setPersona(new Persona());
+        a.getMedico().setNumeroTelefono(rs.getString("mumeroMedi"));
+        a.getMedico().getPersona().setNombre(rs.getString("nombreMedico"));
+        a.getMedico().getPersona().setPrimerApellido(rs.getString("primerApellidoMedico"));
+        a.getMedico().getPersona().setSegundoApellido(rs.getString("segundoApellidoMedico"));
+        a.getMedico().getPersona().setGenero(rs.getString("generoMedico"));
+        a.getMedico().getPersona().setIdPersona(rs.getInt("idPersonaMedico"));
         a.getMedico().setIdMedico(rs.getInt("idMedico"));
 
         a.setFamiliarCargo(new FamiliarCargo());
+        a.getFamiliarCargo().setPersona(new Persona());
         a.getFamiliarCargo().setNumeroTelefono(rs.getString("numTelefono"));
-//        a.getFamiliarCargo().getPersona().setNombre(rs.getString("nomFamiliar"));
-//        a.getFamiliarCargo().getPersona().setPrimerApellido(rs.getString("primerApellidoFamiliar"));
-//        a.getFamiliarCargo().getPersona().setSegundoApellido(rs.getString("segundoApellidoFamiliar"));
-//        a.getFamiliarCargo().getPersona().setGenero(rs.getString("generoFamiliar"));
+        a.getFamiliarCargo().getPersona().setNombre(rs.getString("nombreFami"));
+        a.getFamiliarCargo().getPersona().setPrimerApellido(rs.getString("primerApeFami"));
+        a.getFamiliarCargo().getPersona().setSegundoApellido(rs.getString("segundoApeFami"));
+        a.getFamiliarCargo().getPersona().setGenero(rs.getString("generoFami"));
+        a.getFamiliarCargo().getPersona().setIdPersona(rs.getInt("idPersonaFami"));
         a.getFamiliarCargo().setIdFamiliarCargo(rs.getInt("idFamiliarACargo"));
 
         return a;
