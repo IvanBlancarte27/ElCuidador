@@ -108,6 +108,59 @@ public class ControllerAdultoMayor {
 
     }
 
+    public void actualizarAdultoMayor(AdultoMayor adulto) throws SQLException {
+
+        String query = "{call updateAdultoMayor(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+
+        ConexionMySQL objConexionMySQL = new ConexionMySQL();
+        Connection conn = objConexionMySQL.open();
+
+        CallableStatement cstmt = conn.prepareCall(query);
+
+        cstmt.setString(1, adulto.getPersona().getNombre());
+        cstmt.setString(2, adulto.getPersona().getPrimerApellido());
+        cstmt.setString(3, adulto.getPersona().getSegundoApellido());
+        cstmt.setString(4, adulto.getPersona().getGenero());
+
+        cstmt.setString(5, adulto.getPersona().getNombre());
+        cstmt.setString(6, adulto.getPersona().getPrimerApellido());
+        cstmt.setString(7, adulto.getPersona().getSegundoApellido());
+        cstmt.setString(8, adulto.getPersona().getGenero());
+
+        cstmt.setString(9, adulto.getPersona().getNombre());
+        cstmt.setString(10, adulto.getPersona().getPrimerApellido());
+        cstmt.setString(11, adulto.getPersona().getSegundoApellido());
+        cstmt.setString(12, adulto.getPersona().getGenero());
+
+        cstmt.setString(13, adulto.getMedico().getNumeroTelefono());
+
+        cstmt.setString(14, adulto.getFamiliarCargo().getNumeroTelefono());
+
+        cstmt.setString(15, adulto.getFotografia());
+
+        cstmt.setString(16, adulto.getUsuario().getNombreUsuario());
+        cstmt.setString(17, adulto.getUsuario().getContrasenia());
+        cstmt.setString(18, adulto.getUsuario().getRol());
+
+        cstmt.setInt(19, adulto.getPersona().getIdPersona());
+
+        cstmt.setInt(20, adulto.getPersona().getIdPersona());
+
+        cstmt.setInt(21, adulto.getPersona().getIdPersona());
+
+        cstmt.setInt(22, adulto.getFamiliarCargo().getIdFamiliarCargo());
+        cstmt.setInt(23, adulto.getMedico().getIdMedico());
+        cstmt.setInt(24, adulto.getIdAdultoMayor());
+        cstmt.setInt(25, adulto.getUsuario().getIdUsuario());
+
+        cstmt.executeUpdate();
+
+        cstmt.close();
+        conn.close();
+        objConexionMySQL.close();
+
+    }
+
     public List<AdultoMayor> getAll() throws SQLException {
 
         String sql = "SELECT * FROM v_adultomayor " + ";";

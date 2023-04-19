@@ -1,6 +1,6 @@
 /* Input container */
 .input-container {
-  position: relative;
+  position:relative;
   margin: 20px;
 }
 
@@ -74,11 +74,10 @@
 
 
 .containerForm {
-  position: relative;
+  position:relative;
   width: 700px;
-  height: 680px;
+  height:650px;
   border-radius: 20px;
-  padding: 40px;
   box-sizing: border-box;
   background:#D4E6F1;
   margin-left:20px;
@@ -102,16 +101,17 @@
 
 .containerFormAdulto_datosFam{
   position: relative;
-  width: 750px;
+  width: 690px;
   height:300px;
   border-radius: 20px;
   box-sizing: border-box;
   background: #D4E6F1;
+ 
 }
 
 .containerFormAdulto_datosMedic{
   position: relative;
-  width: 750px;
+  width: 690px;
   height:300px;
   border-radius: 20px;
   box-sizing: border-box;

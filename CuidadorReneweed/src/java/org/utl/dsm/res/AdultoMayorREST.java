@@ -1,5 +1,3 @@
-
-
 package org.utl.dsm.res;
 
 import com.google.gson.Gson;
@@ -17,53 +15,78 @@ import java.util.List;
 import org.utl.dsm.cuidador.AdultoMayor;
 import org.utl.dsm.cuidador.controller.ControllerAdultoMayor;
 
-
 @Path("adultoMayor")
 public class AdultoMayorREST {
-    
+
     @Path("insertAdulto")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertarAdultoMayor(@FormParam("datos") @DefaultValue("") String datos){
+    public Response insertarAdultoMayor(@FormParam("datos") @DefaultValue("") String datos) {
         Gson gson = new Gson();
         AdultoMayor adultoMayor;
         adultoMayor = new AdultoMayor();
-        String out="";
-        
-        adultoMayor=gson.fromJson(datos, AdultoMayor.class);
+        String out = "";
+
+        adultoMayor = gson.fromJson(datos, AdultoMayor.class);
         ControllerAdultoMayor controllerAdultoMayor = new ControllerAdultoMayor();
-        
+
         try {
-            
+
             controllerAdultoMayor.insertAdultoMayor(adultoMayor);
-            out=gson.toJson(adultoMayor);
+            out = gson.toJson(adultoMayor);
         } catch (JsonParseException jpe) {
             out = """
                    {"error": "Error de formato"}
                    """;
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             out = "{\"error\":\"" + ex.toString() + "\"}";
         }
-        
+
         return Response.status(Response.Status.OK).entity(out).build();
     }
-    
+
     @Path("getAll")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll(){
-        String out="";
+    public Response getAll() {
+        String out = "";
         try {
             ControllerAdultoMayor cmA = new ControllerAdultoMayor();
-            List<AdultoMayor> adultos = cmA.getAll( );
+            List<AdultoMayor> adultos = cmA.getAll();
             Gson gs = new Gson();
             out = gs.toJson(adultos);
         } catch (Exception ex) {
             System.out.println(ex.toString());
-           
-            out="{\"error\":\""+ex.toString()+"\"}";
+
+            out = "{\"error\":\"" + ex.toString() + "\"}";
         }
         return Response.status(Response.Status.OK).entity(out).build();
     }
-    
+
+    @Path("actualizar")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response actualizar(@FormParam("datos") @DefaultValue("") String datos) {
+        Gson gson = new Gson();
+        AdultoMayor a = new AdultoMayor();
+        //El punto class es la especificacion que contiene la clase
+        a = gson.fromJson(datos, AdultoMayor.class);
+        String out = "";
+        ControllerAdultoMayor mayor = new ControllerAdultoMayor();
+        try {
+            mayor.actualizarAdultoMayor(a);
+            out = gson.toJson(a);
+        } catch (JsonParseException jpe) {
+            out = """
+                   {"error": "Error de formato"}
+                   """;
+        } catch (SQLException ex) {
+
+            out = "{\"error\":\"" + ex.toString() + "\"}";
+
+        }
+
+        return Response.status(Response.Status.OK).entity(out).build();
+    }
+
 }

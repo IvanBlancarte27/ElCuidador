@@ -25,7 +25,7 @@ import org.utl.dsm.db.ConexionMySQL;
 public class ControllerLogin {
     
         public Cuidador accederCuidador(Usuario u) throws SQLException{
-        String query= "SELECT * FROM v_adultomayor WHERE nombreUsuario='"+u.getNombreUsuario()+"' AND contrasenia='"+u.getContrasenia()+"'";
+        String query= "SELECT * FROM v_cuidador WHERE nombreUsuario='"+u.getNombreUsuario()+"' AND contrasenia='"+u.getContrasenia()+"'";
         
         ConexionMySQL mySQL = new ConexionMySQL();
         Connection coon= mySQL.open();

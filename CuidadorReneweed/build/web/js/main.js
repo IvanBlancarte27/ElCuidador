@@ -49,10 +49,38 @@ function cargarVentanaFormularioAdulto() {
                 document.getElementById('contenedor_principal').innerHTML = datos;
                 import('./formAdultoMayor.js').then(obj => {
                     cm = obj;
-                    cargarDatos();
-                    cargarInfoADivPerfil();
+                    cargarDatosAdultoMayor();
+
                 });
             });
+}
+
+function cargarComentarios() {
+    fetch('../ventanaModal/ventana.html')
+            .then(respuesta => {
+                return respuesta.text();
+            })
+            .then(datos => {
+                document.getElementById('contenedor_principal').innerHTML = datos;
+                //alert("archivo");
+            });
+}
+
+
+function cargarArchivos(){
+    fetch('../cuidador/archivos/archivos.html')
+            .then(respuesta => {
+                return respuesta.text();
+            })
+            .then(datos => {
+                document.getElementById('contenedor_principal').innerHTML = datos;
+                //alert("archivos  ")
+            });
+}
+
+function mantenimiento(){
+    Swal.fire('', 'Modulo en mantenimiento', 'error');
+                    return;
 }
 
 //let ad = null;

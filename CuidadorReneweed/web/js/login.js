@@ -7,7 +7,7 @@ function loginCuidador()
     let usuario = {"usuario":JSON.stringify({nombreUsuario: user, contrasenia: password})};
 
     let params = new URLSearchParams(usuario);
-    alert(usuario);
+    //alert(usuario);
 
     fetch("api/login/acceder",
             {method: "POST",
