@@ -54,3 +54,12 @@ function cargarVentanaFormularioAdulto() {
                 });
             });
 }
+
+//let ad = null;
+//function cargarAdultoJS() {
+//
+//    import('./formAdultoMayor.js').then(obj => {
+//                    ad = obj;
+//                    ad.getAll();
+//                });
+//}

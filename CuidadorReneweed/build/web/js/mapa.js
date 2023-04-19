@@ -1,7 +1,9 @@
 // COMENZANDO EN GOOGLE MAPS
-let cargarMapa;
+let mapaG;
 let lat;
 let lng;
+let latAdulto0;
+let lngAdulto0;
 
 export function verMapa() {
     if (navigator.geolocation) {
@@ -11,7 +13,7 @@ export function verMapa() {
             // Hacer algo con la ubicación obtenida
             // alert(lat + " " + lng);
 
-            cargarMapa = new google.maps.Map(document.getElementById("contenidoMapa"), {
+            mapaG = new google.maps.Map(document.getElementById("contenidoMapa"), {
                 center: {
                     lat: lat,
                     lng: lng
@@ -24,7 +26,7 @@ export function verMapa() {
                     lat: lat,
                     lng: lng
                 },
-                map: cargarMapa
+                map: mapaG
             })
 
             let persona2 = new google.maps.Marker({
@@ -32,7 +34,7 @@ export function verMapa() {
                     lat: 21.07087720853898,
                     lng: -101.56375151054621
                 },
-                map: cargarMapa
+                map: mapaG
             });
 
             let persona3 = new google.maps.Marker({
@@ -40,7 +42,7 @@ export function verMapa() {
                     lat: 21.07773093695163,
                     lng: -101.59335483628323
                 },
-                map: cargarMapa
+                map: mapaG
             });
         });
 
@@ -48,14 +50,48 @@ export function verMapa() {
         // El navegador no soporta geolocalización
         alert("no soporto");
     }
-    
+
 }
 
-export function localizar() {
+
+
+
+export function cargarRuta(index) {
+
+//    let arregloAdulto = Array(document.querySelectorAll("#adultosMayores section"));
+//    console.log(arregloAdulto);
+//    let aux = index;
+//    alert(aux);
+
+    switch (index) {
+        case 0:
+            latAdulto0 = 21.07773298262589;
+            lngAdulto0 = -101.59336273123942;
+            break;
+        case 1:
+            latAdulto0 = 21.099371187504392;
+            lngAdulto0 = -101.61771692121387;
+            break;
+        case 2:
+            latAdulto0 = 21.071116617791525;
+            lngAdulto0 = -101.60623471004418;
+            break;
+        case 3:
+            latAdulto0 = 21.078526046978926;
+            lngAdulto0 = -101.61647380009573;
+            break;
+
+        default:
+
+            break;
+    }
+
+    //alert(latAdulto0 +" , "+ lngAdulto0);
+
     var directionsService = new google.maps.DirectionsService();
 
-    var inicio = { lat: lat, lng: lng };
-    var fin = { lat: 21.077944184665803, lng: -101.61679955712157 };
+    var inicio = {lat: lat, lng: lng};
+    var fin = {lat: latAdulto0, lng: lngAdulto0};
 
     var solicitud = {
         origin: inicio,
@@ -66,11 +102,9 @@ export function localizar() {
     let resultado;
     directionsService.route(solicitud, function (resultado, estado) {
         if (estado == 'OK') {
-            console.log(resultado.routes[0].legs[0]); // Muestra la ruta en la consola
-
             // Crea una ruta en el mapa
             var ruta = new google.maps.DirectionsRenderer({
-                map: cargarMapa,
+                map: mapaG,
                 directions: resultado,
                 suppressMarkers: true,
                 polylineOptions: {
@@ -80,7 +114,59 @@ export function localizar() {
                 }
             });
         }
+        console.log(resultado.routes[0].legs[0].distance.text);
+        console.log(resultado.routes[0].legs[0].duration.text);
     });
+    mandarMensajeSMS();
 }
+
+
+//function mandarMensajeSMS() {
+//
+//    const accountSid = 'ACf8594ca06f63cf267d753adad16fee75';  // Reemplaza con el Account SID DE TWILO
+//    const authToken = '52909cea9c6419d0c6365cd12ddd3cd1';  // Reemplaza con la auteticacion de twilo 
+//    const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+//
+//    const data = {
+//        To: '+524771189966', // Reemplaza con el número de teléfono del destinatario en formato E.164
+//        From: '+15136546257', // Reemplaza con tu número de teléfono de Twilio en formato E.164
+//        Body: 'Tu cuidador va en camino!', // Reemplaza con el mensaje que deseas enviar
+//    };
+//    Swal.fire({
+//        title: '¿Te gustaría que (NOMBRE) te acompañe?',
+//        icon: 'warning',
+//        showCancelButton: true,
+//        confirmButtonColor: '#3085d6',
+//        cancelButtonColor: '#d33',
+//        confirmButtonText: 'Aceptar!'
+//    }).then((result) => {
+//        if (result.isConfirmed) {
+//            Swal.fire(
+//                    'En un momento llegará tu cuidador :)!',
+//                    'Estar atento para recibirlo',
+//                    'success'
+//
+//                    );
+//            fetch(url, {
+//                method: 'POST',
+//                headers: {
+//                    'Content-Type': 'application/x-www-form-urlencoded',
+//                    'Authorization': `Basic ${btoa(`${accountSid}:${authToken}`)}`, // Codifica las credenciales de autenticación en Base64
+//                },
+//                body: new URLSearchParams(data).toString(), // Convierte los datos a una cadena de consulta URL codificada
+//            })
+//                    .then(response => response.json())
+//                    .then(data => console.log(data))
+//                    .catch(error => console.error(error));
+//
+//        } else if (!result.isConfirmed) {
+//            Swal.fire(
+//                    'Te invitamos a buscar a un cuidador que te agrade',
+//                    'Queremos lo mejor para tí',
+//                    'info'
+//                    );
+//        }
+//    });
+//}
 
 
